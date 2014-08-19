@@ -6,4 +6,13 @@
 
     <!-- -*- extra stuff goes here -*- -->
 
+    <plone:behavior
+        title="Affiliates"
+        description="Field to reference Affiliates"
+        provides=".affiliates.IAffiliates"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        marker=".affiliates.IAffiliates"
+        />
+
+
 </configure>
