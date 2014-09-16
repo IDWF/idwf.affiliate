@@ -12,7 +12,13 @@
  <property name="immediate_view">view</property>
  <property name="global_allow">True</property>
  <property name="filter_content_types">False</property>
- <property name="allowed_content_types"/>
+ <property name="allowed_content_types">
+  <element value="Image"/>
+  <element value="Folder"/>
+  <element value="Document"/>
+  <element value="Event"/>
+  <element value="File"/>
+ </property>
  <property name="allow_discussion">False</property>
  <property name="default_view">view</property>
  <property name="view_methods">
@@ -39,6 +45,7 @@
   <element value="plone.app.contenttypes.behaviors.leadimage.ILeadImage"/>
   <element value="plone.app.dexterity.behaviors.metadata.IOwnership"/>
   <element value="collective.sliderfields.behavior.sliderimage.ISliderImage"/>
+  <element value="sinarngo.location.behavior.IRelatedCountries"/>
  </property>
  <property
     name="schema">idwf.affiliate.content.affiliate.IAffiliate</property>
