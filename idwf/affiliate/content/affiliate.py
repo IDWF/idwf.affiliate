@@ -10,6 +10,7 @@ from zope.interface import alsoProvides
 from zope.interface import invariant, Invalid
 
 from z3c.form import group, field
+from collective.z3cform.datetimewidget import MonthYearFieldWidget
 
 from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.namedfile.field import NamedImage, NamedFile
@@ -62,18 +63,18 @@ class IAffiliate(form.Schema, IImageScaleTraversable):
                 title=u'Number of Male Members',required=False)
     members_female_no = schema.Int(title=u'Number of Female Members',
                                     required=False,)
-    phone_number = schema.TextLine(title=u'Phone Number',
-                                   description=u'Office No. eg. +1 '
-                                   '34 4444 4444', required=False)
-
     #Membership Details
     member_fees = schema.Bool(title=u'Check if members pay fees',
                                 required=False,)
     maintains_register_fees = schema.Bool(
         title=u'Maintains register of fees paid',
         required=False)
-    year_established = schema.Date(title=u'Year Established',
-                        required=False)
+
+
+    form.widget('year_established', MonthYearFieldWidget)
+    year_established = schema.Date(
+            title=u'Year Established',
+            required=False)
 
     organization_type = schema.Choice(
            title=_(u'Organization Type'),

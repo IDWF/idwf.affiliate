@@ -18,25 +18,76 @@
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
 
-    <tal:block repeat="widget view/widgets/values">
-        <div class="field" tal:condition="python:widget.__name__ not in ('IDublinCore.title', 'IDublinCore.description', 'title', 'description',)">
-            <label tal:content="widget/label" />
-            <br />
-            <div tal:content="structure widget/render" />
-        </div>
-    </tal:block>
+  <div class="eventDetails vcard">
+      <table class="vertical listing" summary="Affiliate Contact">
+          <tbody>
+          <<tr class="even">
+              <th>Street Address</th>
+              <td tal:content="structure view/w/street_address/render">Value</td>
+          </tr>
+          <tr>
+            <th>Phone Number</th>
+            <td tal:content="structure view/w/phone_number/render">
+            </td>
+        </tr>
+        <tr class="even">
+            <th>Fax Number</th>
+            <td tal:content="structure view/w/fax_number/render">
+            </td>
+        </tr>
+        <tr class="odd">
+            <th>Email</th>
+            <td tal:content="structure view/w/email/render"></td>
+            
+        </tr>
+        <tr class="even">
+            <th>Website</th>
+        <td tal:content="structure view/w/website_url/render">
+            </td>
+        </tr>
+    </table>
+  </div>
 
-    <fieldset tal:repeat="group view/groups"
-              tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
-        <legend tal:content="group/label" />
-        <div class="field" tal:repeat="widget group/widgets/values">
-            <label tal:content="widget/label" />
-            <br />
-            <div tal:content="structure widget/render" />
-        </div>
-    </fieldset>
+  <div class="eventDetails vcard">
+      <table class="vertical listing" summary="Affiliate Details">
+          <tbody>
+          <tr class="odd">
+              <th>Type</th>
+              <td tal:content="structure
+                  view/w/organization_type/render"></td>
+          </tr>
+          <<tr class="even">
+              <th>Number of Male Members</th>
+              <td tal:content="structure view/w/members_male_no/render">Value</td>
+          </tr>
+          <tr>
+            <th>Number of Female Members</th>
+            <td tal:content="structure view/w/members_female_no/render">
+            </td>
+        </tr>
+        <tr class="even">
+            <th>Members Pay Fees</th>
+            <td tal:content="structure view/w/member_fees/render">
+            </td>
+        </tr>
+        <tr class="odd">
+            <th>Maintains Register of Fees Paid</th>
+            <td tal:content="structure view/w/maintains_register_fees/render"></td>
+        </tr>
+        <tr class="even">
+            <th>Year Established</th>
+        <td tal:content="python: context.year_established.strftime('%Y')">
+            </td>
+        </tr>
+    </table>
+  </div>
 
+  <h3>Objectives</h3>
+   <p tal:content="structure view/w/objectives/render"/>
+  <h3>History</h3>
+   <p tal:content="structure view/w/history/render"/>
 
+ 
   </metal:content-core>
 </metal:main>
 
