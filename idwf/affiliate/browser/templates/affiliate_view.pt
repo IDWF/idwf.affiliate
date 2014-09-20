@@ -76,7 +76,7 @@
         </tr>
         <tr class="even">
             <th>Year Established</th>
-        <td tal:content="python: context.year_established.strftime('%Y')">
+        <td tal:on-error="string: N/A" tal:content="python: context.year_established.strftime('%Y')">
             </td>
         </tr>
     </table>
